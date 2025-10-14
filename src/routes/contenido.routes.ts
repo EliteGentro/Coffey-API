@@ -3,6 +3,6 @@ import { getContenidoByCategoria } from '../controllers/contenido.controller.js'
 
 const router = express.Router();
 
-router.get('/:categoriaId', getContenidoByCategoria);
+router.get('/contenido/:categoriaId', getContenidoByCategoria);
 
 export default router;

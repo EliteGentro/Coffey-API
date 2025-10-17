@@ -1,0 +1,14 @@
+{
+    "rules": {
+        "single_quotes": "error",
+        "no_trailing_whitespace": "warn",
+        "no_trailing_comma": "error",
+        
+        "unicorn/filename-case": [
+            "deny",
+            {
+                "case": "kebabCase"
+            }
+        ]
+    }
+}

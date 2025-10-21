@@ -7,6 +7,7 @@ import { validate } from './env.validation';
 
 import { OrganizationModule } from './organization/organization.module';
 import { UserModule } from './user/user.module';
+import { ContentModule } from './content/content.module';
 
 
 @Module({
@@ -34,7 +35,9 @@ import { UserModule } from './user/user.module';
     // App modules
     OrganizationModule,
 
-    UserModule
+    UserModule,
+
+    ContentModule
   ],
   controllers: [AppController],
   providers: [AppService],

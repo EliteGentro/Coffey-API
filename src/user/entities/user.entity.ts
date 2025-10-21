@@ -1,6 +1,6 @@
 import { Entity, Column, ManyToOne } from "typeorm";
 import { BaseEntity } from "../../shared/base.entity";
-import { Organization } from "src/organization/entities/organization.entity";
+import { Organization } from "../../organization/entities/organization.entity";
 
 @Entity()
 export class User extends BaseEntity {
@@ -12,4 +12,11 @@ export class User extends BaseEntity {
 
     @ManyToOne(() => Organization, organization => organization.users)
     organization: Organization;
+
+    @Column({ default: 0 })
+    puntaje_aprendizaje: number;
+
+    @Column()
+    puntaje_colaboracion: number;
+
 }

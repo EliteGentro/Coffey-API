@@ -18,7 +18,9 @@
 #       run: bundle audit
 
 pre-commit:
-  parallel: true
+  parallel: false
   jobs:
-    - run: pnpm oxlint
+    - run: npx oxlint
       glob: "*.{js,ts,jsx,tsx}"
+#    - run: pnpm eslint
+#      glob: "*.{js,ts,jsx,tsx}"

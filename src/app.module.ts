@@ -8,6 +8,7 @@ import { validate } from './env.validation';
 import { OrganizationModule } from './organization/organization.module';
 import { UserModule } from './user/user.module';
 import { ContentModule } from './content/content.module';
+import { SyncModule } from './sync/sync.module';
 
 
 @Module({
@@ -29,6 +30,9 @@ import { ContentModule } from './content/content.module';
         database: config.get<string>('DB_NAME'),
         autoLoadEntities: true,
         synchronize: true,
+        ssl: {
+          rejectUnauthorized: true,
+        }
       }),
     }),
 
@@ -37,7 +41,9 @@ import { ContentModule } from './content/content.module';
 
     UserModule,
 
-    ContentModule
+    ContentModule,
+
+    SyncModule
   ],
   controllers: [AppController],
   providers: [AppService],

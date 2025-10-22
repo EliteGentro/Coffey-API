@@ -1,21 +1,22 @@
 import { BaseEntity } from "../../shared/base.entity"
-import { Column } from "typeorm";
+import { Column, Entity } from "typeorm";
 
 export enum ContentType {
     VIDEO = "video",
 }
 
+@Entity()
 export class Content extends BaseEntity {
-    @Column()
+    @Column({ type: 'varchar' })
     name: string;
 
-    @Column()
+    @Column({ type: 'varchar' })
     details: string;
 
-    @Column({ enum: ContentType })
+    @Column({ type: 'enum', enum: ContentType })
     type: ContentType;
 
-    @Column()
+    @Column({ type: 'varchar' })
     url: string;
 
     @Column({ type: 'text' })

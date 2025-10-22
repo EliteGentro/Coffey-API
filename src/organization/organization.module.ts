@@ -10,5 +10,6 @@ import { Organization } from './entities/organization.entity';
   ],
   controllers: [OrganizationController],
   providers: [OrganizationService],
+  exports: [OrganizationService]
 })
 export class OrganizationModule {}

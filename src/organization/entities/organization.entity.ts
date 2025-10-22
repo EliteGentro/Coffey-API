@@ -5,10 +5,10 @@ import { User } from "src/user/entities/user.entity";
 @Entity()
 export class Organization extends BaseEntity {
 
-    @Column()
+    @Column({ type: 'varchar' })
     name: string;
 
-    @Column({ nullable: true })
+    @Column({ type: 'varchar', nullable: true })
     description: string;
 
     @OneToMany(() => User, user => user.organization)

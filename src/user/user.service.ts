@@ -30,7 +30,7 @@ export class UserService {
   }
 
   findAll() {
-    return `This action returns all user`;
+    return this.userRepository.find();
   }
 
   async findOne(id: string) {
@@ -61,7 +61,10 @@ export class UserService {
     return this.userRepository.save(existingUser);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  async remove(id: string) {
+    const existingUser = await this.findOne(id);
+    await this.userRepository.softDelete(existingUser.id);
+
+    return existingUser;
   }
 }

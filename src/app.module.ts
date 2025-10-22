@@ -10,7 +10,6 @@ import { UserModule } from './user/user.module';
 import { ContentModule } from './content/content.module';
 import { SyncModule } from './sync/sync.module';
 
-
 @Module({
   imports: [
     // Config modules

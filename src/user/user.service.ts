@@ -44,11 +44,7 @@ export class UserService {
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {
-    const existingUser = await this.userRepository.findOneBy({ id });
-
-    if (!existingUser) {
-      throw new NotFoundException();
-    }
+    const existingUser = await this.findOne(id);
 
     if (updateUserDto.organization) {
       const existingOrg = await this.organizationService.findOne(updateUserDto.organization);
@@ -56,14 +52,17 @@ export class UserService {
     }
 
     // Merge the DTO properties into the existing user
-    Object.assign(existingUser, updateUserDto);
+    this.userRepository.merge(existingUser, {
+      ...updateUserDto,
+      organization: existingUser.organization,
+    });
 
     return this.userRepository.save(existingUser);
   }
 
   async remove(id: string) {
     const existingUser = await this.findOne(id);
-    await this.userRepository.softDelete(existingUser.id);
+    await this.userRepository.softRemove(existingUser);
 
     return existingUser;
   }

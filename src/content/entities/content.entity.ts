@@ -12,27 +12,27 @@ export class Content extends BaseEntity {
     @Column({ type: 'varchar' })
     name: string;
 
-    @Column({ type: 'int' })
+    @Column({ type : 'integer'})
     courseid: number;
 
-    @Column({ type: 'int' })
+    @Column({ type : 'integer'})
     levelid: number;
 
-    @Column({ type: 'int' })
+    @Column({ type : 'integer'})
+    lectionid: number;
+
+    @Column({ type : 'integer'})
     resourceid: number;
 
-    @Column({ type: 'varchar' })
-    details: string;
-
-    @Column({ type: 'text', nullable: true })
+    @Column({ type : 'varchar', nullable: true })
     lectiondescription: string;
 
     @Column({ type: 'enum', enum: ContentType })
-    type: ContentType;
+    resourcetype: ContentType;
 
     @Column({ type: 'varchar' })
     url: string;
 
     @Column({ type: 'text' })
-    transcript: string;
+    transcription: string;
 };

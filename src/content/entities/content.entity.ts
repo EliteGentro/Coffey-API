@@ -11,7 +11,7 @@ export enum ResourceType {
 @Entity()
 export class Content extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
-    contentid: string;
+    content_id: string;
 
     @Column({ type: 'varchar' })
     name: string;

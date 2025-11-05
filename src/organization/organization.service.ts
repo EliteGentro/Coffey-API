@@ -20,8 +20,8 @@ export class OrganizationService {
     return `This action returns all organization`;
   }
 
-  findOne(id: string) {
-    const organization = this.organizationRepository.findOneBy({ id });
+  findOne(organizationid: string) {
+    const organization = this.organizationRepository.findOneBy({ organizationid });
 
     if (!organization) {
       throw new NotFoundException();

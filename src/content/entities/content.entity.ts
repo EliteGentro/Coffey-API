@@ -4,14 +4,12 @@ import { Column, Entity } from "typeorm";
 export enum ContentType {
     VIDEO = "video",
     ARTICLE = "article",
-    PODCAST = "podcast"
+    PODCAST = "podcast",
+    FILE = "file"
 }
 
 @Entity()
 export class Content extends BaseEntity {
-    @Column({ type: 'varchar' })
-    name: string;
-
     @Column({ type : 'integer'})
     courseid: number;
 
@@ -27,12 +25,15 @@ export class Content extends BaseEntity {
     @Column({ type : 'varchar', nullable: true })
     lectiondescription: string;
 
-    @Column({ type: 'enum', enum: ContentType })
-    resourcetype: ContentType;
+    @Column({ type: 'varchar', nullable: true })
+    name: string;
 
-    @Column({ type: 'varchar' })
+    @Column({ type: 'varchar', nullable: true, })
     url: string;
 
-    @Column({ type: 'text' })
+    @Column({ type: 'enum', enum: ContentType, nullable: true })
+    resourcetype: ContentType;
+
+    @Column({ type: 'text', nullable: true })
     transcription: string;
 };

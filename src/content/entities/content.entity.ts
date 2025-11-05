@@ -1,7 +1,7 @@
 import { BaseEntity } from "../../shared/base.entity"
-import { Column, Entity } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-export enum ContentType {
+export enum ResourceType {
     VIDEO = "video",
     ARTICLE = "article",
     PODCAST = "podcast",
@@ -10,6 +10,24 @@ export enum ContentType {
 
 @Entity()
 export class Content extends BaseEntity {
+    @PrimaryGeneratedColumn('uuid')
+    contentid: string;
+
+    @Column({ type: 'varchar' })
+    name: string;
+
+    @Column({ type : 'varchar', nullable: true })
+    details: string;
+
+    @Column({ type: 'varchar' })
+    url: string;
+
+    @Column({ type: 'enum', enum: ResourceType })
+    resourceType: ResourceType;
+
+    @Column({ type: 'text', nullable: true })
+    transcript: string;
+
     @Column({ type : 'integer', comment: 'External course ID' })
     course: number;
 
@@ -21,19 +39,4 @@ export class Content extends BaseEntity {
 
     @Column({ type : 'integer', comment: 'External resource ID' })
     resource: number;
-
-    @Column({ type : 'varchar', nullable: true })
-    description: string;
-
-    @Column({ type: 'varchar' })
-    name: string;
-
-    @Column({ type: 'varchar' })
-    url: string;
-
-    @Column({ type: 'enum', enum: ContentType })
-    type: ContentType;
-
-    @Column({ type: 'text', nullable: true })
-    transcription: string;
 };

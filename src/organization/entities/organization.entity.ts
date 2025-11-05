@@ -1,9 +1,11 @@
 import { BaseEntity } from "../../shared/base.entity";
-import { Entity, Column, OneToMany } from "typeorm";
-import { User } from "src/user/entities/user.entity";
+import { Entity, Column, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "../../user/entities/user.entity";
 
 @Entity()
 export class Organization extends BaseEntity {
+    @PrimaryGeneratedColumn('uuid')
+    organizationid: string;
 
     @Column({ type: 'varchar' })
     name: string;

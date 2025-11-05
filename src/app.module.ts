@@ -28,7 +28,6 @@ import { SyncModule } from './sync/sync.module';
         password: config.get<string>('DB_PASSWORD'),
         database: config.get<string>('DB_NAME'),
         autoLoadEntities: true,
-        synchronize: true,
         ssl: {
           rejectUnauthorized: true,
         }

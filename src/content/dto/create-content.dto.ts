@@ -1,5 +1,5 @@
 import { IsEnum, IsString } from "class-validator";
-import { ContentType } from "../entities/content.entity";
+import { ResourceType } from "../entities/content.entity";
 
 export class CreateContentDto {
     @IsString()
@@ -8,8 +8,8 @@ export class CreateContentDto {
     @IsString()
     details: string;
 
-    @IsEnum(ContentType)
-    type: ContentType;
+    @IsEnum(ResourceType)
+    type: ResourceType;
 
     @IsString()
     url: string;

@@ -10,13 +10,13 @@ export enum ResourceType {
 
 @Entity()
 export class Content extends BaseEntity {
-    @PrimaryGeneratedColumn('uuid')
-    content_id: string;
+    @PrimaryGeneratedColumn({ type: 'integer' })
+    content_id: number;
 
     @Column({ type: 'varchar' })
     name: string;
 
-    @Column({ type : 'varchar', nullable: true })
+    @Column({ type : 'varchar', default: 'nulo' })
     details: string;
 
     @Column({ type: 'varchar' })

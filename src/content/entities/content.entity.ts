@@ -10,29 +10,29 @@ export enum ContentType {
 
 @Entity()
 export class Content extends BaseEntity {
-    @Column({ type : 'integer'})
-    courseid: number;
+    @Column({ type : 'integer', comment: 'External course ID' })
+    course: number;
 
-    @Column({ type : 'integer'})
-    levelid: number;
+    @Column({ type : 'integer', comment: 'External level ID' })
+    level: number;
 
-    @Column({ type : 'integer'})
-    lectionid: number;
+    @Column({ type : 'integer', comment: 'External lection ID' })
+    lection: number;
 
-    @Column({ type : 'integer'})
-    resourceid: number;
+    @Column({ type : 'integer', comment: 'External resource ID' })
+    resource: number;
 
     @Column({ type : 'varchar', nullable: true })
-    lectiondescription: string;
+    description: string;
 
-    @Column({ type: 'varchar', nullable: true })
+    @Column({ type: 'varchar' })
     name: string;
 
-    @Column({ type: 'varchar', nullable: true, })
+    @Column({ type: 'varchar' })
     url: string;
 
-    @Column({ type: 'enum', enum: ContentType, nullable: true })
-    resourcetype: ContentType;
+    @Column({ type: 'enum', enum: ContentType })
+    type: ContentType;
 
     @Column({ type: 'text', nullable: true })
     transcription: string;

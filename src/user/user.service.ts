@@ -33,7 +33,7 @@ export class UserService {
     return this.userRepository.find();
   }
 
-  async findOne(userid: string) {
+  async findOne(userid: number) {
     const user = await this.userRepository.findOneBy({ userid });
 
     if (!user) {
@@ -43,7 +43,7 @@ export class UserService {
     return user;
   }
 
-  async update(id: string, updateUserDto: UpdateUserDto) {
+  async update(id: number, updateUserDto: UpdateUserDto) {
     const existingUser = await this.findOne(id);
 
     if (updateUserDto.organization) {
@@ -60,7 +60,7 @@ export class UserService {
     return this.userRepository.save(existingUser);
   }
 
-  async remove(id: string) {
+  async remove(id: number) {
     const existingUser = await this.findOne(id);
     await this.userRepository.softRemove(existingUser);
 

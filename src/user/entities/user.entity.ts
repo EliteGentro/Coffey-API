@@ -10,8 +10,8 @@ export enum UserRole {
 
 @Entity()
 export class User extends BaseEntity {
-    @PrimaryGeneratedColumn('uuid')
-    userid: string;
+    @PrimaryGeneratedColumn({ type: 'integer' })
+    userid: number;
 
     @Column({ type: 'varchar', nullable: true, unique: true })
     email: string | null;

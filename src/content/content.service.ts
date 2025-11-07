@@ -22,7 +22,7 @@ export class ContentService {
     return await this.contentRepository.find();
   }
 
-  async findOne(content_id: string) {
+  async findOne(content_id: number) {
     const content = await this.contentRepository.findOneBy({ content_id });
 
     if (!content) {
@@ -32,14 +32,14 @@ export class ContentService {
     return content;
   }
 
-  async update(id: string, updateContentDto: UpdateContentDto) {
+  async update(id: number, updateContentDto: UpdateContentDto) {
     const content = await this.findOne(id);
 
     this.contentRepository.merge(content, updateContentDto);
     return this.contentRepository.save(content);
   }
 
-  async remove(id: string) {
+  async remove(id: number) {
     const existingContent = await this.findOne(id);
     await this.contentRepository.softRemove(existingContent);
 

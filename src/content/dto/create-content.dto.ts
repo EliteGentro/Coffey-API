@@ -1,4 +1,4 @@
-import { IsEnum, IsString } from "class-validator";
+import { IsEnum, IsInt, IsOptional, IsString } from "class-validator";
 import { ResourceType } from "../entities/content.entity";
 
 export class CreateContentDto {
@@ -8,12 +8,25 @@ export class CreateContentDto {
     @IsString()
     details: string;
 
-    @IsEnum(ResourceType)
-    type: ResourceType;
-
     @IsString()
     url: string;
 
+    @IsEnum(ResourceType)
+    resourceType: ResourceType;
+
     @IsString()
+    @IsOptional()
     transcript: string;
+
+    @IsInt()
+    course: number;
+
+    @IsInt()
+    level: number;
+
+    @IsInt()
+    lection: number;
+
+    @IsInt()
+    resource: number;
 }

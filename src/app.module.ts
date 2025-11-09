@@ -10,6 +10,8 @@ import { UserModule } from './user/user.module';
 import { ContentModule } from './content/content.module';
 import { SyncModule } from './sync/sync.module';
 import { FinanceModule } from './finance/finance.module';
+import { ProgressModule } from './progress/progress.module';
+import { PreferenceModule } from './preference/preference.module';
 
 @Module({
   imports: [
@@ -44,7 +46,11 @@ import { FinanceModule } from './finance/finance.module';
 
     SyncModule,
 
-    FinanceModule
+    FinanceModule,
+
+    ProgressModule,
+
+    PreferenceModule
   ],
   controllers: [AppController],
   providers: [AppService],

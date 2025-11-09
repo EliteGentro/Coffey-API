@@ -9,6 +9,7 @@ import { OrganizationModule } from './organization/organization.module';
 import { UserModule } from './user/user.module';
 import { ContentModule } from './content/content.module';
 import { SyncModule } from './sync/sync.module';
+import { FinanceModule } from './finance/finance.module';
 
 @Module({
   imports: [
@@ -41,7 +42,9 @@ import { SyncModule } from './sync/sync.module';
 
     ContentModule,
 
-    SyncModule
+    SyncModule,
+
+    FinanceModule
   ],
   controllers: [AppController],
   providers: [AppService],

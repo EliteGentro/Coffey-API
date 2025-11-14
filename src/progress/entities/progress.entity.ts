@@ -19,7 +19,7 @@ export class Progress extends BaseEntity {
   @JoinColumn({ name: 'user_id' })
   user: User;
 
-  
+
   @Column({ type: 'integer' })
   content_id: number;
 
@@ -29,4 +29,7 @@ export class Progress extends BaseEntity {
 
   @Column({ type: 'enum', enum: ProgressStatus, default: ProgressStatus.NOT_STARTED })
   status: ProgressStatus;
+
+  @Column({ type: 'int', default: 0, nullable: false })
+  grade: number;
 }

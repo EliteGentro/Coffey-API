@@ -12,6 +12,7 @@ import { SyncModule } from './sync/sync.module';
 import { FinanceModule } from './finance/finance.module';
 import { ProgressModule } from './progress/progress.module';
 import { PreferenceModule } from './preference/preference.module';
+import { CooperativaModule } from './cooperativa/cooperativa.module';
 
 @Module({
   imports: [
@@ -50,7 +51,9 @@ import { PreferenceModule } from './preference/preference.module';
 
     ProgressModule,
 
-    PreferenceModule
+    PreferenceModule,
+
+    CooperativaModule
   ],
   controllers: [AppController],
   providers: [AppService],

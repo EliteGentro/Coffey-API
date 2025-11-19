@@ -17,6 +17,11 @@ export class UserController {
     return this.userService.findAll();
   }
 
+  @Get('deleted')
+  findAllDeleted() {
+    return this.userService.findAllDeleted();
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.userService.findOne(id);

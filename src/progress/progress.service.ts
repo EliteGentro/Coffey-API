@@ -22,6 +22,14 @@ export class ProgressService {
     });
   }
 
+  async findAllDeleted() {
+    return await this.progressRepository.find({
+      where: {},
+      withDeleted: true,
+      relations: ['user', 'content'],
+    }).then(results => results.filter(item => item.deletedAt !== null));
+  }
+
   async findOne(progress_id: number) {
     const progress = await this.progressRepository.findOne({
       where: {  progress_id },

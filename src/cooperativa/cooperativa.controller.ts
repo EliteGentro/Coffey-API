@@ -17,6 +17,11 @@ export class CooperativaController {
     return this.cooperativaService.findAll();
   }
 
+  @Get('deleted')
+  findAllDeleted() {
+    return this.cooperativaService.findAllDeleted();
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.cooperativaService.findOne(id);

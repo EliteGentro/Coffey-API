@@ -20,6 +20,13 @@ export class OrganizationService {
     return `This action returns all organization`;
   }
 
+  async findAllDeleted() {
+    return await this.organizationRepository.find({
+      where: {},
+      withDeleted: true,
+    }).then(results => results.filter(item => item.deletedAt !== null));
+  }
+
   findOne(organizationid: string) {
     const organization = this.organizationRepository.findOneBy({ organizationid });
 

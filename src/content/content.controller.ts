@@ -17,6 +17,11 @@ export class ContentController {
     return this.contentService.findAll();
   }
 
+  @Get('deleted')
+  findAllDeleted() {
+    return this.contentService.findAllDeleted();
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.contentService.findOne(id);

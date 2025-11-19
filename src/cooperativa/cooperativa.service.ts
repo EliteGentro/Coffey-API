@@ -21,6 +21,13 @@ export class CooperativaService {
     return await this.cooperativaRepository.find();
   }
 
+  async findAllDeleted() {
+    return await this.cooperativaRepository.find({
+      where: {},
+      withDeleted: true,
+    }).then(results => results.filter(item => item.deletedAt !== null));
+  }
+
   async findOne(cooperativa_id: number) {
     const cooperativa = await this.cooperativaRepository.findOneBy({ cooperativa_id });
 

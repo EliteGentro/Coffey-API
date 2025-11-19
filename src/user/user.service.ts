@@ -33,6 +33,13 @@ export class UserService {
     return this.userRepository.find();
   }
 
+  async findAllDeleted() {
+    return await this.userRepository.find({
+      where: {},
+      withDeleted: true,
+    }).then(results => results.filter(item => item.deletedAt !== null));
+  }
+
   async findOne(userid: number) {
     const user = await this.userRepository.findOneBy({ userid });
 

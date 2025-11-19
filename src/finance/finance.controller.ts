@@ -17,6 +17,11 @@ export class FinanceController {
     return this.financeService.findAll();
   }
 
+  @Get('deleted')
+  findAllDeleted() {
+    return this.financeService.findAllDeleted();
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.financeService.findOne(id);

@@ -23,6 +23,14 @@ export class AdminService {
     });
   }
 
+  async findAllDeleted() {
+    return await this.adminRepository.find({
+      where: {},
+      withDeleted: true,
+      relations: ['cooperativa'],
+    }).then(results => results.filter(item => item.deletedAt !== null));
+  }
+
   async findOne(admin_id: number) {
     const admin = await this.adminRepository.findOne({
       where: { admin_id },

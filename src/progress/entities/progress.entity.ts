@@ -1,5 +1,6 @@
-import { BaseEntity, JoinColumn, ManyToOne } from "typeorm";
+import { JoinColumn, ManyToOne } from "typeorm";
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { BaseEntity } from "../../shared/base.entity";
 import { User } from "../../user/entities/user.entity";
 import { Content } from '../../content/entities/content.entity';
 export enum ProgressStatus {

@@ -22,6 +22,13 @@ export class ContentService {
     return await this.contentRepository.find();
   }
 
+  async findAllDeleted() {
+    return await this.contentRepository.find({
+      where: {},
+      withDeleted: true,
+    }).then(results => results.filter(item => item.deletedAt !== null));
+  }
+
   async findOne(content_id: number) {
     const content = await this.contentRepository.findOneBy({ content_id });
 

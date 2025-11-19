@@ -17,6 +17,11 @@ export class AdminController {
     return this.adminService.findAll();
   }
 
+  @Get('deleted')
+  findAllDeleted() {
+    return this.adminService.findAllDeleted();
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.adminService.findOne(id);

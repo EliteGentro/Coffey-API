@@ -24,6 +24,14 @@ export class PreferenceService {
     });
   }
 
+  async findAllDeleted() {
+    return await this.preferenceRepository.find({
+      where: {},
+      withDeleted: true,
+      relations: ['user'],
+    }).then(results => results.filter(item => item.deletedAt !== null));
+  }
+
   async findOne(preference_id: number) {
     const preference = await this.preferenceRepository.findOne({
       where: { preference_id },

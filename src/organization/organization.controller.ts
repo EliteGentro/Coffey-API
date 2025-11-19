@@ -17,6 +17,11 @@ export class OrganizationController {
     return this.organizationService.findAll();
   }
 
+  @Get('deleted')
+  findAllDeleted() {
+    return this.organizationService.findAllDeleted();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.organizationService.findOne(id);

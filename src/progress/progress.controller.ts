@@ -17,6 +17,11 @@ export class ProgressController {
     return this.progressService.findAll();
   }
 
+  @Get('deleted')
+  findAllDeleted() {
+    return this.progressService.findAllDeleted();
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.progressService.findOne(id);

@@ -1,5 +1,6 @@
 import { User } from "../../user/entities/user.entity";
-import { BaseEntity, Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity } from "../../shared/base.entity";
 
 
 @Entity()

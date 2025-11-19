@@ -23,6 +23,14 @@ export class FinanceService {
     });
   }
 
+  async findAllDeleted() {
+    return await this.financeRepository.find({
+      where: {},
+      withDeleted: true,
+      relations: ['user'],
+    }).then(results => results.filter(item => item.deletedAt !== null));
+  }
+
   async findOne(finance_id: number) {
     const finance = await this.financeRepository.findOne({
       where: { finance_id },

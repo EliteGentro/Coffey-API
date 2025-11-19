@@ -17,6 +17,11 @@ export class PreferenceController {
     return this.preferenceService.findAll();
   }
 
+  @Get('deleted')
+  findAllDeleted() {
+    return this.preferenceService.findAllDeleted();
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.preferenceService.findOne(id);

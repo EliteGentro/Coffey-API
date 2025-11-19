@@ -13,6 +13,7 @@ import { FinanceModule } from './finance/finance.module';
 import { ProgressModule } from './progress/progress.module';
 import { PreferenceModule } from './preference/preference.module';
 import { CooperativaModule } from './cooperativa/cooperativa.module';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
   imports: [
@@ -53,7 +54,9 @@ import { CooperativaModule } from './cooperativa/cooperativa.module';
 
     PreferenceModule,
 
-    CooperativaModule
+    CooperativaModule,
+
+    AdminModule
   ],
   controllers: [AppController],
   providers: [AppService],

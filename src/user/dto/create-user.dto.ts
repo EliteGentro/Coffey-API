@@ -1,22 +1,11 @@
-import { IsNotEmpty, IsOptional, IsString, IsUUID } from "class-validator";
+import { IsInt, IsNotEmpty, IsString, Min } from "class-validator";
 
 export class CreateUserDto {
-    @IsOptional()
     @IsString()
     @IsNotEmpty()
-    email: string | undefined;
+    name: string;
 
-    @IsString()
-    @IsNotEmpty()
-    given_name: string;
-
-    @IsOptional()
-    @IsString()
-    @IsNotEmpty()
-    family_name: string | undefined;
-
-    @IsOptional()
-    @IsUUID()
-    @IsNotEmpty()
-    organization: string | undefined;
+    @IsInt()
+    @Min(1)
+    cooperativa_id: number;
 }

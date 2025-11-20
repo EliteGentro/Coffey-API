@@ -1,6 +1,5 @@
 import { BaseEntity } from "../../shared/base.entity";
-import { Entity, Column, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "../../user/entities/user.entity";
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Organization extends BaseEntity {
@@ -12,7 +11,4 @@ export class Organization extends BaseEntity {
 
     @Column({ type: 'varchar', nullable: true })
     description: string;
-
-    @OneToMany(() => User, user => user.organization)
-    users: User[];
 }

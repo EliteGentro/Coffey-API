@@ -22,6 +22,11 @@ export class UserController {
     return this.userService.findAllDeleted();
   }
 
+  @Get('cooperativa/:cooperativaId')
+  findByCooperativa(@Param('cooperativaId', ParseIntPipe) cooperativaId: number) {
+    return this.userService.findByCooperativa(cooperativaId);
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.userService.findOne(id);

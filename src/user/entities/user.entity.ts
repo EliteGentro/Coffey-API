@@ -1,33 +1,25 @@
-import { Entity, Column, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, ManyToOne, PrimaryGeneratedColumn, JoinColumn } from "typeorm";
 import { BaseEntity } from "../../shared/base.entity";
-import { Organization } from "../../organization/entities/organization.entity";
-
-export enum UserRole {
-    BASE = "base",
-    COORDINATOR = "coordinator",
-    ADMIN = "admin"
-}
+import { Cooperativa } from "../../cooperativa/entities/cooperativa.entity";
 
 @Entity()
 export class User extends BaseEntity {
     @PrimaryGeneratedColumn({ type: 'integer' })
     user_id: number;
 
-    @Column({ type: 'varchar', nullable: true, unique: true })
-    email: string | null;
-
     @Column({ type: 'varchar' })
-    given_name: string;
+    name: string;
 
-    @Column({ type: 'varchar', nullable: true })
-    family_name: string;
+    @Column({ type: 'integer' })
+    cooperativa_id: number;
 
-    @ManyToOne(() => Organization, organization => organization.users)
-    organization: Organization;
+    @ManyToOne(() => Cooperativa, { nullable: false })
+    @JoinColumn({ name: 'cooperativa_id' })
+    cooperativa: Cooperativa;
 
     @Column({ type: 'int', default: 0 })
     puntaje_aprendizaje: number;
 
-    @Column({ type: 'enum', enum: UserRole, default: UserRole.BASE })
-    role: UserRole;
+    @Column({ type: 'int', default: 0 })
+    contenidos_terminados: number;
 }

@@ -40,8 +40,8 @@ export class UserService {
     }).then(results => results.filter(item => item.deletedAt !== null));
   }
 
-  async findOne(userid: number) {
-    const user = await this.userRepository.findOneBy({ userid });
+  async findOne(user_id: number) {
+    const user = await this.userRepository.findOneBy({ user_id });
 
     if (!user) {
       throw new NotFoundException();

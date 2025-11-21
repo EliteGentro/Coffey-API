@@ -17,7 +17,7 @@ export class Finance extends BaseEntity {
     @Column({ type: 'varchar' })
     name: string;
 
-    @Column({ type: 'date' })
+    @Column({ type: 'timestamp with time zone' })
     date: Date;
 
     @Column({ type: 'varchar' })

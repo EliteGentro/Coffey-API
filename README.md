@@ -25,6 +25,70 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Project Structure
+
+```
+src/
+├── admin/                      # Admin management module
+│   ├── dto/
+│   ├── entities/
+│   ├── admin.controller.ts
+│   ├── admin.service.ts
+│   └── admin.module.ts
+├── content/                    # Content management module
+│   ├── dto/
+│   ├── entities/
+│   ├── content.controller.ts
+│   ├── content.service.ts
+│   └── content.module.ts
+├── cooperativa/                # Cooperativa management module
+│   ├── dto/
+│   ├── entities/
+│   ├── cooperativa.controller.ts
+│   ├── cooperativa.service.ts
+│   └── cooperativa.module.ts
+├── finance/                    # Finance tracking module
+│   ├── dto/
+│   ├── entities/
+│   ├── finance.controller.ts
+│   ├── finance.service.ts
+│   └── finance.module.ts
+├── organization/               # Organization management module
+│   ├── dto/
+│   ├── entities/
+│   ├── organization.controller.ts
+│   ├── organization.service.ts
+│   └── organization.module.ts
+├── preference/                 # User preferences module
+│   ├── dto/
+│   ├── entities/
+│   ├── preference.controller.ts
+│   ├── preference.service.ts
+│   └── preference.module.ts
+├── progress/                   # Progress tracking module
+│   ├── dto/
+│   ├── entities/
+│   ├── progress.controller.ts
+│   ├── progress.service.ts
+│   └── progress.module.ts
+├── user/                       # User management module
+│   ├── dto/
+│   ├── entities/
+│   ├── user.controller.ts
+│   ├── user.service.ts
+│   └── user.module.ts
+├── shared/                     # Shared entities and utilities
+│   └── base.entity.ts
+├── sync/                       # Sync module
+│   └── sync.module.ts
+├── migrations/                 # TypeORM database migrations
+│   └── *.ts
+├── app.module.ts               # Root application module
+├── main.ts                     # Application entry point
+├── data-source.ts              # TypeORM data source configuration
+└── env.validation.ts           # Environment variable validation
+```
+
 ## Project setup
 
 ```bash

@@ -10,7 +10,7 @@ export class Admin extends BaseEntity {
     @Column({ type: 'varchar' })
     name: string;
 
-    @Column({ type: 'varchar', unique: true })
+    @Column({ type: 'varchar'})
     correo: string;
 
     @Column({ type: 'integer' })

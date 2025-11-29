@@ -10,7 +10,7 @@ export class Finance extends BaseEntity {
     @Column({ type: 'integer' })
     user_id: number;
 
-    @ManyToOne(() => User, { nullable: true })
+    @ManyToOne(() => User, { nullable: false, onDelete: 'CASCADE' })
     @JoinColumn({ name: 'user_id' })
     user: User;
 

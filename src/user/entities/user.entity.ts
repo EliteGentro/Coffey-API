@@ -13,7 +13,7 @@ export class User extends BaseEntity {
     @Column({ type: 'integer' })
     cooperativa_id: number;
 
-    @ManyToOne(() => Cooperativa, { nullable: false })
+    @ManyToOne(() => Cooperativa, { nullable: false, onDelete: 'CASCADE' })
     @JoinColumn({ name: 'cooperativa_id' })
     cooperativa: Cooperativa;
 

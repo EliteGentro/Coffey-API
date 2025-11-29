@@ -16,7 +16,7 @@ export class Progress extends BaseEntity {
   @Column({ type: 'integer' })
   user_id: number;
 
-  @ManyToOne(() => User, {nullable: true})
+  @ManyToOne(() => User, { nullable: false, onDelete: 'CASCADE' })
   @JoinColumn({ name: 'user_id' })
   user: User;
 
@@ -24,7 +24,7 @@ export class Progress extends BaseEntity {
   @Column({ type: 'integer' })
   content_id: number;
 
-  @ManyToOne(() => Content, {nullable: true})
+  @ManyToOne(() => Content, { nullable: false, onDelete: 'CASCADE' })
   @JoinColumn({ name: 'content_id' })
   content: Content;
 

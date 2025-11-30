@@ -11,7 +11,7 @@ export class Preference extends BaseEntity{
     @Column({ type: 'integer' })
     user_id: number;
 
-    @OneToOne(() => User, { nullable: true })
+    @OneToOne(() => User, { nullable: false, onDelete: 'CASCADE' })
     @JoinColumn({ name: 'user_id' })
     user: User;
 

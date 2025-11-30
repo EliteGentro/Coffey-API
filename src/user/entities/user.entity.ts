@@ -16,10 +16,4 @@ export class User extends BaseEntity {
     @ManyToOne(() => Cooperativa, { nullable: false, onDelete: 'CASCADE' })
     @JoinColumn({ name: 'cooperativa_id' })
     cooperativa: Cooperativa;
-
-    @Column({ type: 'int', default: 0 })
-    puntaje_aprendizaje: number;
-
-    @Column({ type: 'int', default: 0 })
-    contenidos_terminados: number;
 }
